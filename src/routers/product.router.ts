@@ -11,9 +11,9 @@ const productRouter = Router()
 
 productRouter.post('/save-product', isAuthenticated, postSaveProduct)
 
-productRouter.get('/get-products', isAuthenticated, getProducts)
+productRouter.get('/get-products', getProducts)
 
-productRouter.get('/get-product/:id', isAuthenticated, getProduct)
+productRouter.get('/get-product/:id', getProduct)
 
 productRouter.delete('/delete-product', isAuthenticated, deleteProduct)
 
