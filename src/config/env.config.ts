@@ -11,5 +11,7 @@ export const envConfig = {
   __JWT_ACCESS_SECRET: process.env.JWT_ACCESS_SECRET!,
   __CLIENT_URI__: process.env.CLIENT_URI!,
   __REDIS_PASSWORD__: process.env.REDIS_PASSWORD!,
-  __REDIS_URI__: process.env.REDIS_URI!
+  __REDIS_URI__: process.env.REDIS_URI!,
+  __RZ_PAY_API_KEY__: process.env.RZ_PAY_API_KEY!,
+  __RZ_PAY_API_SECRET__: process.env.RZ_PAY_API_SECRET!
 }

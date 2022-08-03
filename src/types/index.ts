@@ -14,3 +14,20 @@ export type orderType = {
   quantity: number
   amount: number
 }
+
+export type cartType = {
+  name: string
+  count: number
+  mrp: number
+  price: number
+}
+
+export type paymentType = {
+  _id: string
+  paymentId: string
+  amount: number
+  currency: string
+  email: string
+  contact: string
+  orders: cartType[]
+}

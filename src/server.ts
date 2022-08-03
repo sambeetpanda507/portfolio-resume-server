@@ -26,7 +26,7 @@ const main = async () => {
   //middleware configurations/options
   //cors options configuration
   const corsOptions: CorsOptions = {
-    origin: envConfig.__CLIENT_URI__,
+    origin: [envConfig.__CLIENT_URI__, 'http://localhost:4000'],
     credentials: true
   }
 
