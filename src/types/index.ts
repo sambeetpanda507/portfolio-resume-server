@@ -16,7 +16,7 @@ export type orderType = {
 }
 
 export type cartType = {
-  name: string
+  title: string
   count: number
   mrp: number
   price: number

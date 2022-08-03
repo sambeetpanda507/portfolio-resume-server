@@ -4,7 +4,8 @@ import {
   getOrders,
   postRazorpay,
   postVerifyPayment,
-  postStorePaymentData
+  postStorePaymentData,
+  getOrderDetails
 } from '../controllers/order.controller'
 
 const orderRouter = Router()
@@ -12,6 +13,8 @@ const orderRouter = Router()
 orderRouter.post('/place-order', postPlaceOrder)
 
 orderRouter.get('/get-orders/:id', getOrders)
+
+orderRouter.get('/get-orders', getOrderDetails)
 
 orderRouter.post('/store-payment-data', postStorePaymentData)
 

@@ -3,7 +3,12 @@ import User from '../models/user.model'
 import Product from '../models/product.model'
 import { Request, Response, NextFunction } from 'express'
 import { NotFound, BadRequest, BadGateway } from 'http-errors'
-import { PlaceOrderSchema, IDSchema, PaymentSchema } from '../schema'
+import {
+  PlaceOrderSchema,
+  IDSchema,
+  PaymentSchema,
+  EmailSchema
+} from '../schema'
 import mongoose from 'mongoose'
 import Razorpay from 'razorpay'
 import { envConfig } from '../config/env.config'
@@ -179,6 +184,28 @@ export const postVerifyPayment = async (
     res.send({ status: 'ok' })
   } catch (e: any) {
     console.error('[error] : ', e.message)
+    next(e)
+  }
+}
+
+//GET: PAYMENT DATA BY EMAIL
+export const getOrderDetails = async (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
+  try {
+    const { email } = await EmailSchema.validateAsync(req.query)
+    const paymentData = await Payment.find({ email: email })
+    res
+      .status(200)
+      .json({ message: 'Data fetched successfully', orderDetails: paymentData })
+  } catch (e: any) {
+    console.error('[error] : ', e.message)
+    if (e.isJoi === true) {
+      e.status = 422
+      e.param = e.details[0].context.label
+    }
     next(e)
   }
 }

@@ -8,7 +8,7 @@ const schema = new Schema<paymentType, Model<paymentType>, paymentType>(
     currency: { type: String, required: true },
     email: { type: String, required: true },
     contact: { type: String, required: true },
-    orders: [{ name: String, count: Number, mrp: Number, price: Number }]
+    orders: [{ title: String, count: Number, mrp: Number, price: Number }]
   },
   { timestamps: true }
 )
