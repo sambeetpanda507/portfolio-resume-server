@@ -16,6 +16,7 @@ import errorHandler from './utils/errorHandler'
 import { IStrVal, INewMsg } from './interfaces'
 import productRouter from './routers/product.router'
 import orderRouter from './routers/order.router'
+import fs from 'fs'
 
 //main function
 const main = async () => {
@@ -147,6 +148,15 @@ const main = async () => {
   app.use('/api', chatRouter)
   app.use('/api', productRouter)
   app.use('/api', orderRouter)
+  app.get('/api/download-resume', (_, res) => {
+    const filePath = path.join(__dirname, '../', 'resume.pdf')
+    const fileName = path.basename(filePath)
+    const mimeType = 'application/pdf'
+    res.setHeader('Content-disposition', 'attachment; filename=' + fileName)
+    res.setHeader('Content-type', mimeType)
+    const fileStream = fs.createReadStream(filePath)
+    fileStream.pipe(res)
+  })
 
   //express error handler
   app.use((_, __, next) => {
