@@ -8,7 +8,6 @@ const morgan_1 = __importDefault(require("morgan"));
 const cookie_parser_1 = __importDefault(require("cookie-parser"));
 const cors_1 = __importDefault(require("cors"));
 const express_1 = __importDefault(require("express"));
-const admin_ui_1 = require("@socket.io/admin-ui");
 const http_1 = require("http");
 const socket_io_1 = require("socket.io");
 const env_config_1 = require("./config/env.config");
@@ -43,10 +42,6 @@ const main = async () => {
         cors: {
             origin: [env_config_1.envConfig.__CLIENT_URI__]
         }
-    });
-    (0, admin_ui_1.instrument)(io, {
-        auth: false,
-        namespaceName: '/socket'
     });
     let onlineUsers = {};
     io.of('/socket').on('connection', (socket) => {

@@ -3,7 +3,7 @@ import morgan from 'morgan'
 import cookieParser from 'cookie-parser'
 import cors, { CorsOptions } from 'cors'
 import express, { Response } from 'express'
-import { instrument } from '@socket.io/admin-ui'
+// import { instrument } from '@socket.io/admin-ui'
 import { createServer } from 'http'
 import { Server } from 'socket.io'
 import { envConfig } from './config/env.config'
@@ -68,10 +68,10 @@ const main = async () => {
     }
   })
 
-  instrument(io, {
-    auth: false,
-    namespaceName: '/socket'
-  })
+  // instrument(io, {
+  //   auth: false,
+  //   namespaceName: '/socket'
+  // })
 
   //online socket users
   let onlineUsers: IStrVal = {}
