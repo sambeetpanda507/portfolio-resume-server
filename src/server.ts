@@ -32,7 +32,7 @@ const main = async () => {
   }
 
   //views path
-  const viewsPath = path.join(__dirname, 'views')
+  const viewsPath = path.join(__dirname, './', 'views')
 
   //morgan format configuration
   const morganFormat: string =

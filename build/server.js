@@ -27,7 +27,7 @@ const main = async () => {
         origin: [env_config_1.envConfig.__CLIENT_URI__, 'http://localhost:4000'],
         credentials: true
     };
-    const viewsPath = path_1.default.join(__dirname, 'views');
+    const viewsPath = path_1.default.join(__dirname, './', 'views');
     const morganFormat = env_config_1.envConfig.__NODE_ENV__ === 'development' ? 'dev' : 'combined';
     app.use((0, morgan_1.default)(morganFormat));
     app.use((0, cors_1.default)(corsOptions));
