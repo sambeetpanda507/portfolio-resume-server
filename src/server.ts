@@ -32,7 +32,8 @@ const main = async () => {
   }
 
   //views path
-  const viewsPath = path.join(__dirname, './', 'views')
+  const viewsPath = path.join(__dirname, './', 'views/', 'index.ejs')
+  console.log(__dirname)
 
   //morgan format configuration
   const morganFormat: string =
@@ -140,7 +141,7 @@ const main = async () => {
 
   //default router
   app.get('/', (_, res: Response) => {
-    res.render('index')
+    res.send('OK')
   })
 
   //router middleware

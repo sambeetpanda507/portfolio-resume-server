@@ -27,7 +27,8 @@ const main = async () => {
         origin: [env_config_1.envConfig.__CLIENT_URI__, 'http://localhost:4000'],
         credentials: true
     };
-    const viewsPath = path_1.default.join(__dirname, './', 'views');
+    const viewsPath = path_1.default.join(__dirname, './', 'views/', 'index.ejs');
+    console.log(__dirname);
     const morganFormat = env_config_1.envConfig.__NODE_ENV__ === 'development' ? 'dev' : 'combined';
     app.use((0, morgan_1.default)(morganFormat));
     app.use((0, cors_1.default)(corsOptions));
@@ -77,7 +78,7 @@ const main = async () => {
         });
     });
     app.get('/', (_, res) => {
-        res.render('index');
+        res.send('OK');
     });
     app.use('/auth', auth_router_1.default);
     app.use('/api', chat_router_1.default);
